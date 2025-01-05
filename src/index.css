@@ -3,12 +3,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'FontName';
+  src: url('/path-to-font/FontName-Regular.woff2') format('woff2'),
+       url('/path-to-font/FontName-Regular.woff') format('woff'),
+       url('../Fonts/Lexend/Lexend-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'Roboto', 'Inter', sans-serif;
+  font-family: 'Lexend', 'Roboto', 'Inter', sans-serif;
 }
 
 body {

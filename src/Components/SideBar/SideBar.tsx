@@ -1,14 +1,13 @@
-import { FaHome, FaMusic, FaDrum, FaGuitar, FaHeadphones, FaMicrophone, FaRecordVinyl } from "react-icons/fa";
 import React, { useState } from "react";
 
 const names = [
-  { name: 'Home', icon: <FaHome /> },
-  { name: 'AskReddit', icon: <FaHeadphones /> },
-  { name: 'NoStupidQuestions', icon: <FaMicrophone /> },
-  { name: 'BaldursGate3', icon: <FaRecordVinyl /> },
-  { name: 'facepalm', icon: <FaGuitar /> },
-  { name: 'interestingasf', icon: <FaDrum /> },
-  { name: 'pics', icon: <FaMusic /> },
+  { name: 'Home'},
+  { name: 'AskReddit'},
+  { name: 'NoStupidQuestions'},
+  { name: 'BaldursGate3'},
+  { name: 'facepalm'},
+  { name: 'interestingasf'},
+  { name: 'pics'},
 ];
 
 const SideBar = () => {
@@ -19,7 +18,7 @@ const SideBar = () => {
     };
 
   return (
-    <nav className="w-96 bg-white mt-5 rounded-lg fixed shadow-lg p-4 right-0 mr-10">
+    <nav className="w-96 bg-white mt-5 rounded-lg absolute shadow-lg p-4 right-2 mr-5">
       <h2 className="text-2xl font-bold mb-6">Subreddits</h2>
       <ul className="flex flex-col gap-3">
         {names.map((item) => (
@@ -30,7 +29,7 @@ const SideBar = () => {
             } hover:bg-gray-100`}
           >
             <button onClick={handleChangeThread} className="flex gap-4">
-                <span className="text-2xl">{item.icon}</span>
+                <img className="rounded-full w-6 h-6 border-gray-700 border-2" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK0X4SRNSlp6KtpfTW3EGRxTkcavdZaaGDOQ&s" alt={item.name}/>
                 <span>{item.name}</span>
             </button> 
           </li>
