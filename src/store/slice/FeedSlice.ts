@@ -10,6 +10,7 @@ interface Post {
     over_18: boolean;
     score: number;
     author: string;
+    created_utc: number;
     preview: {
       images: {
         source: {

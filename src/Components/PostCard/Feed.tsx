@@ -3,32 +3,39 @@ import { fetchPosts } from "../../store/slice/FeedSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../../store/store";
 import PostCard from "./PostCard";
+import utcToNormal from "../../Utils/utcToNormal";
 
 export const Feed = () => {
   const feed = useSelector((state: RootState) => state.feed);
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(fetchPosts("music"));
+    dispatch(fetchPosts("memes"));
   }, [dispatch]);
 
-  const firstPost: { title: string; comments: number; id: string; over18: boolean; score: number; imageUrl: string | null; username: string; time: string; }[] = [];
-  if(feed.posts.length > 0) {
-    for (let i = 0; i < feed.posts.length; i++) {
-      firstPost.push({title: feed.posts[i].data.title,
-        comments: feed.posts[i].data.num_comments,
-        id: feed.posts[i].data.id,
-        over18: feed.posts[i].data.over_18,
-        score: feed.posts[i].data.score,
-        imageUrl: feed.posts[i].data.preview?.images[i].source.url || null,
-        username: feed.posts[i].data.author,
-        time: "1 hour ago",})
-      }}
+  // Check if loading is true, and show loading text
+  if (feed.loading) {
+    return <div className="text-center mt-5 ml-5 text-2xl font-bold">Loading...</div>;
+  }
+
+  // If there are no posts, display a message
+  if (feed.error) {
+    return <div className="text-center mt-5 text-2xl font-bold">No posts available</div>;
+  }
 
   return (
     <div className="pl-6">
-      {firstPost && feed.posts.map((post, index) => (
-        <PostCard key={post.data.id} info={firstPost[index]} />
+      {feed.posts.map((post) => (
+        <PostCard key={post.data.id} info={{
+          title: post.data.title,
+          comments: post.data.num_comments,
+          id: post.data.id,
+          over18: post.data.over_18,
+          score: post.data.score,
+          imageUrl: post.data.preview?.images[0]?.source.url || null,
+          username: post.data.author,
+          time: utcToNormal(post.data.created_utc),
+        }} />
       ))}
     </div>
   );

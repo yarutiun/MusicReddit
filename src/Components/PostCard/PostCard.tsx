@@ -62,7 +62,7 @@ const PostCard = ({ info }: PostCardProps) => {
         <h3 className="text-lg mb-2 text-left">{info.title}</h3>
         {info.imageUrl && <img src={info.imageUrl} alt={info.title} className="h-auto mb-3" />}
         <div className="w-auto border border-gray-400 mt-3"></div>
-        <div className="flex justify-between mt-3">
+        <div className="flex justify-between mt-3 gap-3">
           <div className="flex gap-2 items-center">
             <img
               src="https://www.redditstatic.com/avatars/avatar_default_01_24A0ED.png"
