@@ -7,8 +7,10 @@ function App() {
   return (
     <main>
       <Header />
-      <SideBar />
-      <Feed />
+      <div className="flex justify-between gap-4">
+        <Feed />
+        <SideBar />
+      </div>
     </main>
   )
 }

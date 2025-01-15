@@ -18,7 +18,7 @@ const SideBar = () => {
     };
 
   return (
-    <nav className="w-96 bg-white mt-5 rounded-lg absolute shadow-lg p-4 right-2 mr-5">
+    <nav className="w-96 bg-white mt-5 rounded-lg shadow-lg p-4 mr-6 h-min">
       <h2 className="text-2xl font-bold mb-6">Subreddits</h2>
       <ul className="flex flex-col gap-3">
         {names.map((item) => (

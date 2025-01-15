@@ -6,7 +6,7 @@ export const HeaderInput = () => {
         <input
             type="text"
             placeholder="Search"
-            className="bg-gray-800 text-white px-4 py-2 rounded-md h- w-96 outline-none"
+            className="bg-gray-800 text-white px-4 py-2 rounded-md w-96 outline-none"
         />
         <button className="text-white rounded-md hover:scale-110">
             <img src={search} alt="search" className="w-10 h-10"/>
